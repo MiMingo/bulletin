@@ -31,7 +31,7 @@ class PollTapeParser:
     # in the image
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.bilateralFilter(gray, 11, 17, 17)
-    # self.showarr(gray)
+    self.showarr(gray)
     edges = cv2.Canny(gray, 30, 200)
     # self.showarr(edges)
 
@@ -111,6 +111,14 @@ class PollTapeParser:
     cropped = rotated[minx:maxx, miny:maxy]
     self.showarr(cropped)
 
+    # Apply threshold to cropped image
+    gray = cv2.cvtColor(cropped, cv2.COLOR_BGR2GRAY)
+    thresh = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+    self.showarr(thresh)
+
+    # resize
+    self.image = Image.fromarray(thresh)
+
   # Does post-processing on the image to make it easier for pytesseract to read
   def process(self):
     # De-scew the image
@@ -118,4 +126,4 @@ class PollTapeParser:
     
   # Uses pytesseract to convert the image to a string
   def parse(self):
-    pass
+    return pytesseract.image_to_string(self.image)
