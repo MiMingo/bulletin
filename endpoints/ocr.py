@@ -23,7 +23,11 @@ class OCR(Resource):
     if allowed_file(args.image.filename) is not True:
       return {'image': '{} type is not supported. must be {}'.format(args.image.filename, ALLOWED_EXTENSIONS)}, 415
     args.image.filename = secure_filename(args.image.filename)
-    
+
     # Initialize a PollTapeParser and return the parsed information.
-    ptparser = PollTapeParser(args.image)
-    return 'upload success'
+    try:
+      ptparser = PollTapeParser(args.image)
+      ptparser.process()
+    except ValueError as e:
+      return {'error': str(e)}, 409
+    return {"output": ptparser.parse()}

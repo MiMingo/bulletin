@@ -1,2 +1,6 @@
-Flask_RESTful==0.3.6
+Werkzeug==0.14.1
+pytesseract==0.2.5
 Flask==1.0.2
+opencv_python==3.4.3.18
+numpy==1.15.4
+Flask_RESTful==0.3.6

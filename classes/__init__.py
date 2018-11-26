@@ -1,1 +1,1 @@
-from polltape_parser import PollTapeParser
+from .polltape_parser import PollTapeParser
