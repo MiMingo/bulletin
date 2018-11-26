@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image, ImageFilter, ImageEnhance
 from io import BytesIO
 import imutils
+from skimage.filters import threshold_local
 
 # Takes in a werkzeug.FileStorage object, converts to an image
 # and parses the image into json data
@@ -19,23 +20,19 @@ class PollTapeParser:
   def showarr(self, arr):
     Image.fromarray(arr).show()
 
-  # De-skews an image
-  # src: https://www.pyimagesearch.com/2017/02/20/text-skew-correction-opencv-python/
-  def descew(self):
-    image = self.cvimg
+  # returns the detected contour of the poll-tape (4x2)
+  def get_paper_contour(self, orig):
+    # resize the image for faster computation.
+    image = orig.copy()
     ratio = image.shape[0] / 300.0
-    orig = image.copy()
     image = imutils.resize(image, height = 300)
-    
-    # convert the image to grayscale, blur it, and find edges
-    # in the image
+
+    # Process the image to find edges
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.bilateralFilter(gray, 11, 17, 17)
-    self.showarr(gray)
     edges = cv2.Canny(gray, 30, 200)
-    # self.showarr(edges)
 
-    # Get countours from edges
+    # Get the ballotContour from the edges -- the largest connected rectangle.
     _, contours, _ = cv2.findContours(edges.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key = cv2.contourArea, reverse=True)[:5]
     ballotContour = None
@@ -49,81 +46,108 @@ class PollTapeParser:
       if len(approx) == 4:
         ballotContour = approx
         break
+
     if ballotContour is None:
       raise ValueError('image could determine ballot border. make sure the ballot is on a solid dark background, fully in the image.')
 
-    cv2.drawContours(image, [ballotContour], -1, (0, 255, 0), 3)
-    self.showarr(image)
+    # Draw the contour
+    # cv2.drawContours(image, [ballotContour], -1, (0, 255, 0), 1)
+    # self.showarr(image)
 
-    # create a new mask
-    print(image.shape)
-    mask = np.zeros((edges.shape[0], edges.shape[1], 3), np.uint8)
-    print(mask.shape)
-    cv2.drawContours(mask, [ballotContour], -1, (255, 255, 255), -1, lineType=cv2.LINE_AA)
-    # self.showarr(mask)
-    # resize mask to original image size
-    mask = imutils.resize(mask, height=orig.shape[0])
-    # self.showarr(mask)
+    # Reshape, scale, and return
+    ballotContour = ballotContour.reshape(4,2) * ratio
+    return ballotContour
 
-    #-- Smooth mask, then blur it --------------------------------------------------------
-    mask = cv2.dilate(mask, None, iterations=10)
-    mask = cv2.erode(mask, None, iterations=10)
-    mask = cv2.GaussianBlur(mask, (21, 21), 0)
+  # Orders a (4x2) matrix s.t:
+  # m[0] = top-left point
+  # m[1] = top-right point
+  # m[2] = bottom-right point
+  # m[3] = bottom-left point
+  # src = https://www.pyimagesearch.com/2014/08/25/4-point-opencv-getperspective-transform-example/
+  def order_points(self, contour):
+    rect = np.zeros((4,2), dtype='float32')
 
-    # blend the mask and original image
-    mask = mask.astype('float32')/255.0
-    img = self.cvimg.astype('float32')/255.0
-    masked = (mask * img) + ((1-mask) * (1.0, 1.0, 1.0))
-    masked = (masked*255).astype('uint8')
-    self.showarr(masked)
+    # fill top-left and bottom right points
+    s = contour.sum(axis=1)
+    rect[0] = contour[np.argmin(s)]
+    rect[2] = contour[np.argmax(s)]
 
-    # ROTATION
-    gray = cv2.cvtColor(masked, cv2.COLOR_BGR2GRAY)
-    gray = cv2.bitwise_not(gray)
-    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-    # self.showarr(thresh)
+    # fill the top-right and bottom-left points
+    diff = np.diff(contour, axis=1)
+    rect[1] = contour[np.argmin(diff)]
+    rect[3] = contour[np.argmax(diff)]
 
-    # Calculate bounding-rect and angle of the text
-    coords = np.column_stack(np.where(thresh > 0))
-    angle = cv2.minAreaRect(coords)[-1]
+    return rect
 
-    # Correct angle
-    angle = -(90 + angle) if angle < -45 else -angle
-    print('angle: {}'.format(angle))
+  # Transforms the original image to a "birds-eye-view" of the poll tape, 
+  # using the contour.
+  def four_point_transform(self, orig, contour):
+    rect = self.order_points(contour)
+    print(rect)
+    tr, tl, br, bl = rect
 
-    # rotate the image to deskew it
-    (h, w) = masked.shape[:2]
-    center = (w // 2, h // 2)
-    M = cv2.getRotationMatrix2D(center, angle, 1.0)
-    rotated = cv2.warpAffine(masked, M, (w, h),
-      flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
-    gray = cv2.cvtColor(rotated, cv2.COLOR_BGR2GRAY)
+    # create the new image width -- the max length of the top or bottom of the contour
+    widthA = np.sqrt(((br[0] - bl[0]) ** 2) + ((br[1] - bl[1]) ** 2))
+    widthB = np.sqrt(((tr[0] - tl[0]) ** 2) + ((tr[1] - tl[1]) ** 2))
+    maxWidth = max(int(widthA), int(widthB))
 
-    self.showarr(rotated)
+    # create the new image height -- the max of the left/right of the contour
+    heightA = np.sqrt(((tr[0] - br[0]) ** 2) + ((tr[1] - br[1]) ** 2))
+    heightB = np.sqrt(((tl[0] - bl[0]) ** 2) + ((tl[1] - bl[1]) ** 2))
+    maxHeight = max(int(heightA), int(heightB))
 
-    # crop image to the masked portion
-    points = np.column_stack(np.where(gray < 255))
-    minx = int(min([p[0] for p in points])//1)
-    maxx = int(max([p[0] for p in points])//1)
-    miny = int(min([p[1] for p in points])//1)
-    maxy = int(max([p[1] for p in points])//1)
-    print(minx, maxx, miny, maxy)
-    cropped = rotated[minx:maxx, miny:maxy]
-    self.showarr(cropped)
+    # now that we have the dimensions of the new image, construct
+    # the set of destination points to obtain a "birds eye view",
+    # (i.e. top-down view) of the image, again specifying points
+    # in the top-left, top-right, bottom-right, and bottom-left
+    # order
+    dst = np.array([
+      [0, 0],
+      [maxWidth - 1, 0],
+      [maxWidth - 1, maxHeight - 1],
+      [0, maxHeight - 1]], dtype = "float32")
+  
+    # compute the perspective transform matrix and then apply it
+    M = cv2.getPerspectiveTransform(rect, dst)
+    warped = cv2.warpPerspective(orig, M, (maxWidth, maxHeight))
+    return warped
 
-    # Apply threshold to cropped image
-    gray = cv2.cvtColor(cropped, cv2.COLOR_BGR2GRAY)
-    thresh = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-    self.showarr(thresh)
+  # De-skews an image
+  # src: https://www.pyimagesearch.com/2017/02/20/text-skew-correction-opencv-python/
+  def descew(self):
+    contour = self.get_paper_contour(self.cvimg)
+    warped = self.four_point_transform(self.cvimg, contour)
+    self.showarr(warped)
+    return warped
 
-    # resize
-    self.image = Image.fromarray(thresh)
+  # Performs several preprocessing techniques on the tape to increase tesseract accuracy
+  def preprocess(self, tape):
+    # grayscale
+    gray = cv2.cvtColor(tape, cv2.COLOR_BGR2GRAY)
+   
+    # skimage threshold (text is a bit light)
+    # T = threshold_local(gray, 35, offset = 10)
+    # gray = (gray > T).astype("uint8") * 255
+    # self.showarr(gray)
+    res = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)[1]
 
-  # Does post-processing on the image to make it easier for pytesseract to read
+    # remove salt and pepper
+    # res = cv2.medianBlur(gray, 3)
+    self.showarr(res)
+
+    return res
+
+  # Does pre-processing on the image to make it easier for pytesseract to read
   def process(self):
-    # De-scew the image
-    self.descew()
+    # descew and crop the image so it is only the poll-tape
+    tape = self.descew()
+
+    # apply preprocessing to the tape
+    processed = self.preprocess(tape)
+
+    # set the PIL Image
+    self.image = Image.fromarray(processed)
     
   # Uses pytesseract to convert the image to a string
   def parse(self):
-    return pytesseract.image_to_string(self.image)
+    return pytesseract.image_to_string(self.image, lang='eng')
