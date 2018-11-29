@@ -24,4 +24,4 @@ api.add_resource(Verified, '/api/ocr/verified')
 # For us, listen to port 3000 so you can just run 'python3 app.py' to start the server
 if __name__ == '__main__':
     # listen on external IPs
-    app.run(host='localhost', port='8080', debug=True)
+    app.run(host='0.0.0.0', port='8080', debug=True)
