@@ -15,7 +15,7 @@ class Verified(Resource):
 
         # write message 
         post_file = open("post.txt", "w+")
-        post_file.write("1\n" + message)
+        post_file.write("1\n" + str(message))
         post_file.close()
 
         # generate path to post file
