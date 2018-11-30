@@ -117,7 +117,7 @@ class PollTapeParser:
   def descew(self):
     contour = self.get_paper_contour(self.cvimg)
     warped = self.four_point_transform(self.cvimg, contour)
-    self.showarr(warped)
+    # self.showarr(warped)
     return warped
 
   # Performs several preprocessing techniques on the tape to increase tesseract accuracy
@@ -133,7 +133,7 @@ class PollTapeParser:
 
     # remove salt and pepper
     # res = cv2.medianBlur(gray, 3)
-    self.showarr(res)
+    # self.showarr(res)
 
     return res
 
