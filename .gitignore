@@ -4,3 +4,4 @@ env/
 .vscode/
 .cabal-sandbox/
 cabal.sandbox.config
+post.txt
