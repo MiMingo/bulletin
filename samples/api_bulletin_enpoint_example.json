@@ -1,0 +1,521 @@
+{
+    "bb_json": [
+        [
+            {
+                "postMessage": {
+                    "messageText": "{'date': 'now', 'district': '6', 'ballots_cast': '3', 'time': '04:2010/11/2018', 'races': [{'candidates': [{'votes': 'v 1', 'name': 'Harry Johnson'}, {'votes': '2', 'name': 'Suzie Doosie'}], 'race_name': 'Senate'}, {'candidates': [{'votes': None, 'name': 'Alice Muppet'}, {'votes': '2', 'name': 'Bob Builder'}], 'race_name': 'Governor'}], 'precinct': '9'}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "bCzowZDgJn1UhK6SAD70rtXj9miOY4v2KjF3B1Y3mzw=",
+                            "signature": {
+                                "s": 555946511234905909735017287708356,
+                                "r": 3436478631653940645766899469645452
+                            }
+                        },
+                        "2018-12-05T21:19:33.017443000000Z"
+                    ],
+                    "signature": {
+                        "s": 2622963251680353245745299128112640,
+                        "r": 2474125625853310406548869198230091
+                    }
+                },
+                "postWrittenTime": "2018-12-05T21:19:33.011880000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "postMessage": {
+                    "messageText": "{'date': 'now', 'district': '6', 'ballots_cast': '3', 'time': '04:2010/11/2018', 'races': [{'candidates': [{'votes': 'v 1', 'name': 'Harry Johnson'}, {'votes': '2', 'name': 'Suzie Doosie'}], 'race_name': 'Senate'}, {'candidates': [{'votes': None, 'name': 'Alice Muppet'}, {'votes': '2', 'name': 'Bob Builder'}], 'race_name': 'Governor'}], 'precinct': '9'}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "JJOg2ejECGYKu4Mis6DLA6KebN7jchXNl/FK3HVn/v8=",
+                            "signature": {
+                                "s": 4117045505091957250382064266815151,
+                                "r": 584494901246080763092115926856661
+                            }
+                        },
+                        "2018-12-05T21:19:32.410409000000Z"
+                    ],
+                    "signature": {
+                        "s": 2968178213518276028966885982269005,
+                        "r": 3363085403164078108356008115103803
+                    }
+                },
+                "postWrittenTime": "2018-12-05T21:19:32.405243000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "postMessage": {
+                    "messageText": "{'date': 'now', 'district': '6', 'ballots_cast': '3', 'time': '04:2010/11/2018', 'races': [{'candidates': [{'votes': 'v 1', 'name': 'Harry Johnson'}, {'votes': '2', 'name': 'Suzie Doosie'}], 'race_name': 'Senate'}, {'candidates': [{'votes': None, 'name': 'Alice Muppet'}, {'votes': '2', 'name': 'Bob Builder'}], 'race_name': 'Governor'}], 'precinct': '9'}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "WBAzD4SAMznVvz4HQD7mW9KGlg09T96RJVwDVZ9Kciw=",
+                            "signature": {
+                                "s": 259789498262105940933444705932909,
+                                "r": 3320752493976524047844014907640819
+                            }
+                        },
+                        "2018-12-05T21:19:29.943734000000Z"
+                    ],
+                    "signature": {
+                        "s": 462467710906755617923533419419960,
+                        "r": 3354821331489792057532865522439539
+                    }
+                },
+                "postWrittenTime": "2018-12-05T21:19:29.935445000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "postMessage": {
+                    "messageText": "{'date': 'now', 'district': '6', 'ballots_cast': '3', 'time': '04:2010/11/2018', 'races': [{'candidates': [{'votes': 'v 1', 'name': 'Harry Johnson'}, {'votes': '2', 'name': 'Suzie Doosie'}], 'race_name': 'Senate'}, {'candidates': [{'votes': None, 'name': 'Alice Muppet'}, {'votes': '2', 'name': 'Bob Builder'}], 'race_name': 'Governor'}], 'precinct': '9'}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "b88x8d+hLQuXZ8kIknwspfLDPjq/Kg4wETUTRkyYDUc=",
+                            "signature": {
+                                "s": 2749705078559850673403455385023350,
+                                "r": 4007247683389276184229792463956003
+                            }
+                        },
+                        "2018-12-05T21:19:26.586976000000Z"
+                    ],
+                    "signature": {
+                        "s": 4261577713039747895790868904113983,
+                        "r": 1679403136673233121969911779639555
+                    }
+                },
+                "postWrittenTime": "2018-12-05T21:19:26.580131000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "postMessage": {
+                    "messageText": "{'time': None, 'precinct': '9', 'district': '6', 'races': [{'race_name': 'Senate', 'candidates': [{'name': 'Harry Johnson', 'votes': '1'}, {'name': 'Suzie Doosie', 'votes': '2'}]}, {'race_name': 'Governor', 'candidates': [{'name': 'Alice Muppet', 'votes': '1'}, {'name': 'Bob Builder', 'votes': '2'}]}], 'date': 'now', 'ballots_cast': '3'}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "tpnkclnu6ktL4QnOucQ2vLT5JFMvXG3STkTDq2DWtws=",
+                            "signature": {
+                                "s": 1143206798392014575256202175483359,
+                                "r": 2091994439398705673330153604714856
+                            }
+                        },
+                        "2018-12-05T01:01:56.464726000000Z"
+                    ],
+                    "signature": {
+                        "s": 2976617703620828328819564332375522,
+                        "r": 348006941173746890754382429868476
+                    }
+                },
+                "postWrittenTime": "2018-12-05T01:01:56.455663000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "postMessage": {
+                    "messageText": "{'time': None, 'precinct': '9', 'district': '6', 'races': [{'race_name': 'Senate', 'candidates': [{'name': 'Harry Johnson', 'votes': '1'}, {'name': 'Suzie Doosie', 'votes': '2'}]}, {'race_name': 'Governor', 'candidates': [{'name': 'Alice Muppet', 'votes': '1'}, {'name': 'Bob Builder', 'votes': '2'}]}], 'date': 'now', 'ballots_cast': '3'}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "mE1cAVsh+U1NYvIpHXgdmhmMtmmzp4KhfVisYe54KmM=",
+                            "signature": {
+                                "s": 3291096067556087856890259542106708,
+                                "r": 566547209290719457407390649427197
+                            }
+                        },
+                        "2018-12-05T01:01:55.967079000000Z"
+                    ],
+                    "signature": {
+                        "s": 558093494448773136299124883796142,
+                        "r": 2355882670942224090182915865566744
+                    }
+                },
+                "postWrittenTime": "2018-12-05T01:01:55.958127000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "postMessage": {
+                    "messageText": "{'time': None, 'precinct': '9', 'district': '6', 'races': [{'race_name': 'Senate', 'candidates': [{'name': 'Harry Johnson', 'votes': '1'}, {'name': 'Suzie Doosie', 'votes': '2'}]}, {'race_name': 'Governor', 'candidates': [{'name': 'Alice Muppet', 'votes': '1'}, {'name': 'Bob Builder', 'votes': '2'}]}], 'date': 'now', 'ballots_cast': '3'}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "5bHGOdcPQaWPUZ+R51Z82uCjPcolEXiKezO/MolpbWc=",
+                            "signature": {
+                                "s": 3179870461920861651212827149197768,
+                                "r": 4435640746799416394260203185688191
+                            }
+                        },
+                        "2018-12-05T01:01:55.229492000000Z"
+                    ],
+                    "signature": {
+                        "s": 3883215904242117478950261052477280,
+                        "r": 3781294749233188516098950171269754
+                    }
+                },
+                "postWrittenTime": "2018-12-05T01:01:55.218501000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "postMessage": {
+                    "messageText": "{'time': None, 'precinct': '9', 'district': '6', 'races': [{'race_name': 'Senate', 'candidates': [{'name': 'Harry Johnson', 'votes': '1'}, {'name': 'Suzie Doosie', 'votes': '2'}]}, {'race_name': 'Governor', 'candidates': [{'name': 'Alice Muppet', 'votes': '1'}, {'name': 'Bob Builder', 'votes': '2'}]}], 'date': 'now', 'ballots_cast': '3'}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "Z8ibJ6wWGMrCkg37ngeA5DwC7axXbaPbh8LvwESAusI=",
+                            "signature": {
+                                "s": 3898725294149865669109136795879473,
+                                "r": 347385733819360567668827093650082
+                            }
+                        },
+                        "2018-12-05T01:01:54.624763000000Z"
+                    ],
+                    "signature": {
+                        "s": 507175458732845060173404087577619,
+                        "r": 1294566469116905137411123035397887
+                    }
+                },
+                "postWrittenTime": "2018-12-05T01:01:54.616702000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "postMessage": {
+                    "messageText": "{'ballots_cast': '3', 'races': [{'race_name': 'Senate', 'candidates': [{'votes': '1 i', 'name': 'Harry'}, {'votes': '2', 'name': 'Suzie'}]}, {'race_name': 'Governor', 'candidates': [{'votes': '1', 'name': 'Alice'}, {'votes': '2', 'name': 'Bob'}]}], 'date': 'now', 'time': '04:20 10/11/2018', 'precinct': None}"
+                },
+                "postBoardSig": {
+                    "message": [
+                        {
+                            "message": "Ss8uPLS/HwxTSc+iczvX+S0wp79SoRzUbiVJgnpGCmw=",
+                            "signature": {
+                                "s": 1235393547906988526388055653664834,
+                                "r": 3569236734725651659239169459860710
+                            }
+                        },
+                        "2018-12-05T00:33:17.494013000000Z"
+                    ],
+                    "signature": {
+                        "s": 618663897662678178636553321041080,
+                        "r": 1823700236658934382288621635093559
+                    }
+                },
+                "postWrittenTime": "2018-12-05T00:33:17.488116000000Z",
+                "postWriter": {
+                    "authorName": "FlaskAppendOnlyClient",
+                    "authorPubKey": {
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                692480053039336810811669960816995,
+                                1449667031925110352097089336719078
+                            ]
+                        },
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4451685225093714772084598273548427,
+                                {
+                                    "ecc_a": 4451685225093714772084598273548424,
+                                    "ecc_n": 4451685225093714776491891542548933,
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            188281465057972534892223778713752,
+                                            3419875491033170827167861896082688
+                                        ]
+                                    },
+                                    "ecc_b": 2061118396808653202902996166388514,
+                                    "ecc_h": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        {
+            "message": [
+                "bCzowZDgJn1UhK6SAD70rtXj9miOY4v2KjF3B1Y3mzw=",
+                "2018-12-05T21:19:57.942714000000Z"
+            ],
+            "signature": {
+                "s": 3751608628500787319134178845151705,
+                "r": 4344894119127052355404677422031224
+            }
+        }
+    ],
+    "pubkey": {
+        "public_q": {
+            "tag": "Point",
+            "contents": [
+                2929325704275491728236817333033812,
+                655582547612252537326771827018287
+            ]
+        },
+        "public_curve": {
+            "tag": "CurveFP",
+            "contents": [
+                4451685225093714772084598273548427,
+                {
+                    "ecc_a": 4451685225093714772084598273548424,
+                    "ecc_n": 4451685225093714776491891542548933,
+                    "ecc_g": {
+                        "tag": "Point",
+                        "contents": [
+                            188281465057972534892223778713752,
+                            3419875491033170827167861896082688
+                        ]
+                    },
+                    "ecc_b": 2061118396808653202902996166388514,
+                    "ecc_h": 1
+                }
+            ]
+        }
+    }
+}
