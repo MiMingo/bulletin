@@ -12,7 +12,16 @@ def allowed_file(filename):
 
 def complete_template(result):
   split_result = result.split('\n')
+
   template = PollTapeTemplate.get_template()
+
+  # get district
+  district = find_value_in_split_result(split_result, "district:")
+  template["district"] = district
+
+  # get precinct
+  precinct = find_value_in_split_result(split_result, "precinct:")
+  template["precinct"] = precinct
 
   # get date
   date = find_value_in_split_result(split_result, "date:")
@@ -29,7 +38,6 @@ def complete_template(result):
   # get number of votes for each candidate
   for race in template["races"]:
     for candidate in race["candidates"]:
-      print("here")
       votes = find_value_in_split_result(split_result, candidate["name"])
       candidate["votes"] = votes
 
@@ -40,6 +48,7 @@ def find_value_in_split_result(split_result, search_val):
   val = [i.lower() for i in split_result if i.lower().startswith(search_val)]
   if not val:
     return None
+  print(val[0])
   val = val[0].replace(search_val, "")
   val = val.strip()
   return val

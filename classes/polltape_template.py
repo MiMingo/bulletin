@@ -3,11 +3,12 @@ class PollTapeTemplate:
   @staticmethod
   def get_poll_tape_template():
     poll_tape = {
-        "precinct": None,
-        "date": None,
-        "time": None,
-        "ballots_cast": None,
-        "races": []
+      "district": None,
+      "precinct": None,
+      "date": None,
+      "time": None,
+      "ballots_cast": None,
+      "races": []
     }
     return poll_tape
 
@@ -30,6 +31,7 @@ class PollTapeTemplate:
   @staticmethod
   def get_template():
     template = {
+      "district": None,
       "precinct": None,
       "date": None,
       "time": None,
@@ -39,11 +41,11 @@ class PollTapeTemplate:
           "race_name": "Senate",
           "candidates": [
             {
-              "name": "Harry",
+              "name": "Harry Johnson",
               "votes": None
             },
             {
-              "name": "Suzie",
+              "name": "Suzie Doosie",
               "votes": None
             }
           ]
@@ -52,11 +54,11 @@ class PollTapeTemplate:
           "race_name": "Governor",
           "candidates": [
             {
-              "name": "Alice",
+              "name": "Alice Muppet",
               "votes": None
             },
             {
-              "name": "Bob",
+              "name": "Bob Builder",
               "votes": None
             }
           ]
