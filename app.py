@@ -7,6 +7,7 @@ from endpoints import Hello
 from endpoints import OCR
 from endpoints import Verified
 from endpoints import BulletinBoard
+from endpoints import Template
 
 # Initialize Flask and Flask_Restful apps
 app = Flask(__name__)
@@ -21,6 +22,7 @@ api.add_resource(Hello, '/api/hello')
 api.add_resource(OCR, '/api/ocr')
 api.add_resource(Verified, '/api/ocr/verified')
 api.add_resource(BulletinBoard, '/api/bulletin')
+api.add_resource(Template, '/api/template/<district>')
 
 # Listen on external IPs
 # For us, listen to port 3000 so you can just run 'python3 app.py' to start the server

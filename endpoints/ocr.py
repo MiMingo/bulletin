@@ -11,13 +11,12 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def complete_template(result):
+  template = PollTapeTemplate()
   split_result = result.split('\n')
 
-  template = PollTapeTemplate.get_template()
-
-  # get district
+  # get district and template
   district = find_value_in_split_result(split_result, "district:")
-  template["district"] = district
+  template = template.get_template(district)
 
   # get precinct
   precinct = find_value_in_split_result(split_result, "precinct:")
