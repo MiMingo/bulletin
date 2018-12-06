@@ -151,7 +151,7 @@ class PollTapeTemplate:
     self.districts = {
       "1": type(self).district_1,
       "2": type(self).district_2,
-      "6": type(self).district_3
+      "3": type(self).district_3
     }
 
   @staticmethod
