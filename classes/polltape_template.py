@@ -34,7 +34,7 @@ class PollTapeTemplate:
           ]
         },
         {
-          "race_name": "State House",
+          "race_name": "House",
           "candidates": [
             {
               "name": "Melinda Harrington",
@@ -83,7 +83,7 @@ class PollTapeTemplate:
         ]
       },
       {
-        "race_name": "State House",
+        "race_name": "House",
         "candidates": [
           {
             "name": "Robert Paulson",
@@ -132,7 +132,7 @@ class PollTapeTemplate:
         ]
       },
       {
-        "race_name": "State House",
+        "race_name": "House",
         "candidates": [
           {
             "name": "Brennan Huff",

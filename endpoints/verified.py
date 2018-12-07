@@ -2,6 +2,7 @@ import subprocess
 import os
 import flask
 from flask_restful import Resource, reqparse
+import json
 
 
 # Contains endpoints to post a user - verified poll tape to
@@ -15,7 +16,7 @@ class Verified(Resource):
 
         # write message 
         post_file = open("post.txt", "w+")
-        post_file.write("1\n" + str(message))
+        post_file.write("1\n" + str(json.dumps(message)))
         post_file.close()
 
         # generate path to post file
