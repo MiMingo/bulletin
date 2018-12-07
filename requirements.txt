@@ -1,8 +1,12 @@
-Werkzeug==0.14.1
-pytesseract==0.2.5
+imutils==0.5.1
+scikit_image==0.14.1
 Flask==1.0.2
-opencv_python==3.4.3.18
 numpy==1.15.4
 Flask_RESTful==0.3.6
-scikit-image==0.14.1
-imutils==0.5.1
+opencv_python==3.4.3.18
+requests==2.20.0
+Flask_Cors==3.0.7
+Werkzeug==0.14.1
+pytesseract==0.2.5
+Pillow==5.3.0
+skimage==0.0
