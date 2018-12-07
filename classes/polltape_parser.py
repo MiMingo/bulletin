@@ -124,16 +124,15 @@ class PollTapeParser:
   def preprocess(self, tape):
     # grayscale
     gray = cv2.cvtColor(tape, cv2.COLOR_BGR2GRAY)
-   
     # skimage threshold (text is a bit light)
     # T = threshold_local(gray, 35, offset = 10)
     # gray = (gray > T).astype("uint8") * 255
-    # self.showarr(gray)
-    res = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)[1]
+    self.showarr(gray)
 
+    res = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)[1]
     # remove salt and pepper
     # res = cv2.medianBlur(gray, 3)
-    # self.showarr(res)
+    self.showarr(res)
 
     return res
 
@@ -150,4 +149,6 @@ class PollTapeParser:
     
   # Uses pytesseract to convert the image to a string
   def parse(self):
-    return pytesseract.image_to_string(self.image, lang='eng')
+      tess = pytesseract.image_to_string(self.image, lang='eng')
+      print(tess)
+      return tess
