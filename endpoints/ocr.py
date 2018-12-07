@@ -15,11 +15,11 @@ def complete_template(result):
   split_result = result.split('\n')
 
   # get district and template
-  district = find_value_in_split_result(split_result, "district:")
+  district = find_value_in_split_result(split_result, "district:", True)
   template = template.get_template(district)
 
   # get precinct
-  precinct = find_value_in_split_result(split_result, "precinct:")
+  precinct = find_value_in_split_result(split_result, "precinct:", True)
   template["precinct"] = precinct
 
   # get date
@@ -31,25 +31,30 @@ def complete_template(result):
   template["time"] = time
 
   # get ballots cast
-  ballots = find_value_in_split_result(split_result, "ballots cast")
+  ballots = find_value_in_split_result(split_result, "ballots cast", True)
   template["ballots_cast"] = ballots
 
   # get number of votes for each candidate
   for race in template["races"]:
     for candidate in race["candidates"]:
-      votes = find_value_in_split_result(split_result, candidate["name"])
+      votes = find_value_in_split_result(split_result, candidate["name"], True)
       candidate["votes"] = votes
 
   return template
 
-def find_value_in_split_result(split_result, search_val):
+def find_value_in_split_result(split_result, search_val, numeric=False):
   search_val = search_val.lower()
-  val = [i.lower() for i in split_result if i.lower().startswith(search_val)]
+  val = [i.lower() for i in split_result if search_val in i.lower()]
   if not val:
     return None
-  print(val[0])
-  val = val[0].replace(search_val, "")
-  val = val.strip()
+  print(val)
+  if numeric:
+    val = [i for i in val[0].split() if i.isdigit()]
+    val = val[0]
+  else:
+    val = val[0].replace(search_val, "")
+    val = val.strip()
+  print(val)
   return val
 
 
