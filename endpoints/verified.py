@@ -28,7 +28,7 @@ class Verified(Resource):
         client_path = os.path.abspath(client_path)
 
         # execute constructed command
-        command = "{0} localhost:8000 post < {1}".format(client_path, post_file_path)
+        command = "{0} 0.0.0.0:8000 post < {1}".format(client_path, post_file_path)
         client_post_result = subprocess.run(command, shell=True, stdout=subprocess.PIPE)
         # client_post_result = subprocess.run(command, shell=True)
 
