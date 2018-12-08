@@ -125,18 +125,19 @@ class PollTapeParser:
     # grayscale
     gray = cv2.cvtColor(tape, cv2.COLOR_BGR2GRAY)
     # skimage threshold (text is a bit light)
-    T = threshold_local(gray, 35, offset = 10)
-    gray = (gray > T).astype("uint8") * 255
-    gray = cv2.medianBlur(gray, 11)
-    # self.showarr(gray)
+    # T = threshold_local(gray, 11, offset = 10)
+    # gray = (gray > T).astype("uint8") * 255
+    # gray = cv2.medianBlur(gray, 11)
+    self.showarr(gray)
 
-    # res = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)[1]
+    res = cv2.threshold(gray, 80, 255, cv2.THRESH_TOZERO)[1]
     # remove salt and pepper
-    # res = cv2.medianBlur(gray, 3)
+    res = cv2.medianBlur(gray, 3)
     # self.showarr(res)
     # self.showarr(median)
 
-    return gray
+    return res
+    # return gray
 
   # Does pre-processing on the image to make it easier for pytesseract to read
   def process(self):

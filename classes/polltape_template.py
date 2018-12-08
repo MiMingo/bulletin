@@ -11,11 +11,11 @@ class PollTapeTemplate:
           "race_name": "Senate",
           "candidates": [
             {
-              "name": "Harry Johnson",
+              "name": "Hank Johnson",
               "votes": None
             },
             {
-              "name": "Suzie Doosie",
+              "name": "Joe Profit",
               "votes": None
             }
           ]
@@ -24,11 +24,15 @@ class PollTapeTemplate:
           "race_name": "Governor",
           "candidates": [
             {
-              "name": "Alice Muppet",
+              "name": "Brian Kemp",
               "votes": None
             },
             {
-              "name": "Bob Builder",
+              "name": "Stacey Abrams",
+              "votes": None
+            },
+            {
+              "name": "Ted Metz",
               "votes": None
             }
           ]
@@ -60,11 +64,11 @@ class PollTapeTemplate:
         "race_name": "Senate",
         "candidates": [
           {
-            "name": "Harry Johnson",
+            "name": "Lucy McBath",
             "votes": None
           },
           {
-            "name": "Suzie Doosie",
+            "name": "Karen Handel",
             "votes": None
           }
         ]
@@ -73,11 +77,15 @@ class PollTapeTemplate:
         "race_name": "Governor",
         "candidates": [
           {
-            "name": "Alice Muppet",
+            "name": "Brian Kemp",
             "votes": None
           },
           {
-            "name": "Bob Builder",
+            "name": "Stacey Abrams",
+            "votes": None
+          },
+          {
+            "name": "Ted Metz",
             "votes": None
           }
         ]
@@ -86,11 +94,11 @@ class PollTapeTemplate:
         "race_name": "House",
         "candidates": [
           {
-            "name": "Robert Paulson",
+            "name": "Sanford Bishop",
             "votes": None
           },
           {
-            "name": "Tyler Durden",
+            "name": "Herman West",
             "votes": None
           }
         ]
@@ -109,11 +117,11 @@ class PollTapeTemplate:
         "race_name": "Senate",
         "candidates": [
           {
-            "name": "Harry Johnson",
+            "name": "Rob Woodall",
             "votes": None
           },
           {
-            "name": "Suzie Doosie",
+            "name": "Carolyn Bourdeaux",
             "votes": None
           }
         ]
@@ -122,11 +130,15 @@ class PollTapeTemplate:
         "race_name": "Governor",
         "candidates": [
           {
-            "name": "Alice Muppet",
+            "name": "Brian Kemp",
             "votes": None
           },
           {
-            "name": "Bob Builder",
+            "name": "Stacey Abrams",
+            "votes": None
+          },
+          {
+            "name": "Ted Metz",
             "votes": None
           }
         ]
@@ -135,11 +147,11 @@ class PollTapeTemplate:
         "race_name": "House",
         "candidates": [
           {
-            "name": "Brennan Huff",
+            "name": "Drew Ferguson",
             "votes": None
           },
           {
-            "name": "Dale Doback",
+            "name": "Chuck Enderlin",
             "votes": None
           }
         ]
