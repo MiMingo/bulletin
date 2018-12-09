@@ -53,22 +53,23 @@ def complete_template(result):
 
 def find_value_in_split_result(split_result, search_val, errors, numeric=False):
   search_val = search_val.lower()
-  val = [i.lower() for i in split_result if search_val in i.lower()]
-  if not val:
+
+  # get line(s) containing the searched value
+  lines = [i.lower() for i in split_result if search_val in i.lower()]
+  if not lines:
     errors.append("Could not find \"{0}\" in image".format(search_val))
     return None
-  print(val)
+
+  # extract the numeric value from the line
   if numeric:
-    val = [i for i in val[0].split() if i.isdigit()]
-    if not val:
+    numeric_vals = [i for i in lines[0].split() if i.isdigit()]
+    if not numeric_vals:
       errors.append("Could not find value associated with \"{0}\" in image".format(search_val))
       return None
-    val = val[0]
-  else:
-    val = val[0].replace(search_val, "")
-    val = val.strip()
-  print(val)
-  return val
+    return  numeric_vals[-1]
+  else: # need a non numeric value from the line
+    val = lines[0].replace(search_val, "")
+    return val.strip()
 
 
 # Contains endpoints to post images that need to be parsed
