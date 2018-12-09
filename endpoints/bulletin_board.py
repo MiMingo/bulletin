@@ -23,7 +23,6 @@ class BulletinBoard(Resource):
       "pubkey": pubkey.json()
     }
 
-    if client_read_result == 0:
-      # THIS SHOULD NOT BE HERE
-      return result, 500
-    return result, 200
+    if client_read_result.returncode == 0:
+      return result, 200
+    return result, 500
