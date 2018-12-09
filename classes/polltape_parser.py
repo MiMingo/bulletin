@@ -48,7 +48,7 @@ class PollTapeParser:
         break
 
     if ballotContour is None:
-      raise ValueError('image could determine ballot border. make sure the ballot is on a solid dark background, fully in the image.')
+      raise ValueError('Could not determine ballot border. Make sure the ballot is on a solid dark background, fully in the image.')
 
     # Draw the contour
     # cv2.drawContours(image, [ballotContour], -1, (0, 255, 0), 1)
@@ -128,7 +128,7 @@ class PollTapeParser:
     # T = threshold_local(gray, 11, offset = 10)
     # gray = (gray > T).astype("uint8") * 255
     # gray = cv2.medianBlur(gray, 11)
-    self.showarr(gray)
+    # self.showarr(gray)
 
     res = cv2.threshold(gray, 80, 255, cv2.THRESH_TOZERO)[1]
     # remove salt and pepper

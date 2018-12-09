@@ -3,6 +3,7 @@ from flask_restful import Resource, reqparse
 from werkzeug.utils import secure_filename 
 from werkzeug.datastructures import FileStorage
 from classes import PollTapeParser, PollTapeTemplate
+import json
 
 # Filename parsing from http://flask.pocoo.org/docs/0.12/patterns/fileuploads/
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
@@ -14,42 +15,54 @@ def complete_template(result):
   template = PollTapeTemplate()
   split_result = result.split('\n')
 
+  errors = []
+
   # get district and template
-  district = find_value_in_split_result(split_result, "district:", True)
+  district = find_value_in_split_result(split_result, "district:", errors, True)
   template = template.get_template(district)
 
+  if not template:
+    print("here")
+    errors.append("Failed to find template associated with district {0}".format(district))
+    return None, errors
+
   # get precinct
-  precinct = find_value_in_split_result(split_result, "precinct:", True)
+  precinct = find_value_in_split_result(split_result, "precinct:", errors, True)
   template["precinct"] = precinct
 
   # get date
-  date = find_value_in_split_result(split_result, "date:")
+  date = find_value_in_split_result(split_result, "date:", errors)
   template["date"] = date
 
   # get time
-  time = find_value_in_split_result(split_result, "time:")
+  time = find_value_in_split_result(split_result, "time:", errors)
   template["time"] = time
 
   # get ballots cast
-  ballots = find_value_in_split_result(split_result, "ballots cast", True)
+  ballots = find_value_in_split_result(split_result, "ballots cast", errors, True)
   template["ballots_cast"] = ballots
 
   # get number of votes for each candidate
   for race in template["races"]:
     for candidate in race["candidates"]:
-      votes = find_value_in_split_result(split_result, candidate["name"], True)
+      votes = find_value_in_split_result(split_result, candidate["name"], errors, True)
       candidate["votes"] = votes
 
-  return template
+  print(errors)
+  return template, errors
 
-def find_value_in_split_result(split_result, search_val, numeric=False):
+def find_value_in_split_result(split_result, search_val, errors, numeric=False):
   search_val = search_val.lower()
   val = [i.lower() for i in split_result if search_val in i.lower()]
   if not val:
+    errors.append("Could not find \"{0}\" in image".format(search_val))
     return None
   print(val)
   if numeric:
     val = [i for i in val[0].split() if i.isdigit()]
+    if not val:
+      errors.append("Could not find value associated with \"{0}\" in image".format(search_val))
+      return None
     val = val[0]
   else:
     val = val[0].replace(search_val, "")
@@ -77,7 +90,10 @@ class OCR(Resource):
       ptparser = PollTapeParser(args.image)
       ptparser.process()
       ocr_result = ptparser.parse()
-      final_result = complete_template(ocr_result)
+      final_result, errors = complete_template(ocr_result)
+      if errors:
+        error_str = "\n".join(errors)
+        return {"error": error_str}, 409
+      return {"output": final_result}
     except ValueError as e:
-      return {'error': str(e)}, 409
-    return {"output": final_result}
+      return {"error": str(e)}, 409
