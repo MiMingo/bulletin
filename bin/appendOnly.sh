@@ -8,20 +8,6 @@ init_start() {
   ./STAR-Vote/.cabal-sandbox/bin/bbserver -b :: -p 8000
 }
 
-# init_status() {
-#   if lsof -i :8000 &>/dev/null; then
-#     echo "search server running"
-#   fi
-# }
-
-# init_stop() {
-#   echo "stopping search server ..."
-#   pid=$(lsof -ti:8000)
-#   echo "+ kill -9 ${pid}"
-#   kill -9 ${pid}
-# }
-
-
 if [ $# -ne 1 ]; then
   usage
   exit 1

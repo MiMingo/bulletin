@@ -1,0 +1,1 @@
+update board set message = "test" where id = 1;
