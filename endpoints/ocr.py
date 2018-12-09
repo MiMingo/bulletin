@@ -22,7 +22,6 @@ def complete_template(result):
   template = template.get_template(district)
 
   if not template:
-    print("here")
     errors.append("Failed to find template associated with district {0}".format(district))
     return None, errors
 
@@ -48,7 +47,6 @@ def complete_template(result):
       votes = find_value_in_split_result(split_result, candidate["name"], errors, True)
       candidate["votes"] = votes
 
-  print(errors)
   return template, errors
 
 def find_value_in_split_result(split_result, search_val, errors, numeric=False):
