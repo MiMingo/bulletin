@@ -1,279 +1,256 @@
-[
-    [
-        {
-            "postWriter": {
-                "authorName": "mingo",
-                "authorPubKey": {
-                    "public_curve": {
-                        "tag": "CurveFP",
-                        "contents": [
-                            4451685225093714772084598273548427,
-                            {
-                                "ecc_g": {
-                                    "tag": "Point",
-                                    "contents": [
-                                        188281465057972534892223778713752,
-                                        3419875491033170827167861896082688
-                                    ]
-                                },
-                                "ecc_a": 4451685225093714772084598273548424,
-                                "ecc_n": 4451685225093714776491891542548933,
-                                "ecc_h": 1,
-                                "ecc_b": 2061118396808653202902996166388514
-                            }
-                        ]
-                    },
-                    "public_q": {
-                        "tag": "Point",
-                        "contents": [
-                            2408448716817768188229894518763943,
-                            4421049736122137007508382296673758
-                        ]
+{
+    "bb_json": [
+        [
+            {
+                "postWriter": {
+                    "authorName": "mingo",
+                    "authorPubKey": {
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4.451685225093714772084598273548427e+33,
+                                {
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            1.88281465057972534892223778713752e+32,
+                                            3.419875491033170827167861896082688e+33
+                                        ]
+                                    },
+                                    "ecc_a": 4.451685225093714772084598273548424e+33,
+                                    "ecc_n": 4.451685225093714776491891542548933e+33,
+                                    "ecc_h": 1,
+                                    "ecc_b": 2.061118396808653202902996166388514e+33
+                                }
+                            ]
+                        },
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                9.3795990328771664682283466488571e+32,
+                                2.68731398757936550373911287054233e+33
+                            ]
+                        }
                     }
+                },
+                "postBoardSig": {
+                    "signature": {
+                        "r": 4.353478510541117912040568367423201e+33,
+                        "s": 4.293157156269473656104095420045074e+33
+                    },
+                    "message": [
+                        {
+                            "signature": {
+                                "r": 3.562158495650796158458384470059735e+33,
+                                "s": 5.33829520011671206380922860430244e+32
+                            },
+                            "message": "P9IbejcnUaHFfWahPtYwlhXAty3IUUpGkjF+XU6NXR0="
+                        },
+                        "2018-12-08T21:23:57.273609000000Z"
+                    ]
+                },
+                "postWrittenTime": "2018-12-08T21:23:57.248879000000Z",
+                "postMessage": {
+                    "messageText": "{\"district\": 1, \"precinct\": \"4\", \"date\": \"11/06/2018\", \"time\": \"20:30\", \"ballots_cast\": \"2247\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Hank Johnson\", \"votes\": \"1027\"}, {\"name\": \"Joe Profit\", \"votes\": \"1212\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Brian Kemp\", \"votes\": \"897\"}, {\"name\": \"Stacey Abrams\", \"votes\": \"1341\"}, {\"name\": \"Ted Metz\", \"votes\": \"8\"}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Melinda Harrington\", \"votes\": \"777\"}, {\"name\": \"Doyle Yates\", \"votes\": \"1412\"}]}]}"
                 }
             },
-            "postBoardSig": {
-                "signature": {
-                    "r": 2958757424354921324708865457810708,
-                    "s": 2895984653506265194847937362062790
-                },
-                "message": [
-                    {
-                        "signature": {
-                            "r": 2768604106924569804482772472452604,
-                            "s": 3064889613699741755936315777815140
+            {
+                "postWriter": {
+                    "authorName": "mingo",
+                    "authorPubKey": {
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4.451685225093714772084598273548427e+33,
+                                {
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            1.88281465057972534892223778713752e+32,
+                                            3.419875491033170827167861896082688e+33
+                                        ]
+                                    },
+                                    "ecc_a": 4.451685225093714772084598273548424e+33,
+                                    "ecc_n": 4.451685225093714776491891542548933e+33,
+                                    "ecc_h": 1,
+                                    "ecc_b": 2.061118396808653202902996166388514e+33
+                                }
+                            ]
                         },
-                        "message": "tTvGBGD2Wya9bIieKJkVHBXG5Y8MQeVE36vnx0hNv0I="
-                    },
-                    "2018-12-07T21:44:31.770896000000Z"
-                ]
-            },
-            "postWrittenTime": "2018-12-07T21:44:31.765214000000Z",
-            "postMessage": {
-                "messageText": "{\"district\": 2, \"precinct\": \"8\", \"date\": \"now\", \"time\": \"04:1910/10/2018\", \"ballots_cast\": \"5\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Harry Johnson\", \"votes\": \"3\"}, {\"name\": \"Suzie Doosie\", \"votes\": \"2\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Alice Muppet\", \"votes\": \"3\"}, {\"name\": \"Bob Builder\", \"votes\": \"2\"}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Robert Paulson\", \"votes\": \"1\"}, {\"name\": \"Tyler Durden\", \"votes\": \"2\"}]}]}"
-            }
-        },
-        {
-            "postWriter": {
-                "authorName": "mingo",
-                "authorPubKey": {
-                    "public_curve": {
-                        "tag": "CurveFP",
-                        "contents": [
-                            4451685225093714772084598273548427,
-                            {
-                                "ecc_g": {
-                                    "tag": "Point",
-                                    "contents": [
-                                        188281465057972534892223778713752,
-                                        3419875491033170827167861896082688
-                                    ]
-                                },
-                                "ecc_a": 4451685225093714772084598273548424,
-                                "ecc_n": 4451685225093714776491891542548933,
-                                "ecc_h": 1,
-                                "ecc_b": 2061118396808653202902996166388514
-                            }
-                        ]
-                    },
-                    "public_q": {
-                        "tag": "Point",
-                        "contents": [
-                            2408448716817768188229894518763943,
-                            4421049736122137007508382296673758
-                        ]
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                9.3795990328771664682283466488571e+32,
+                                2.68731398757936550373911287054233e+33
+                            ]
+                        }
                     }
+                },
+                "postBoardSig": {
+                    "signature": {
+                        "r": 4.79531067625101165944071362568551e+32,
+                        "s": 4.208256986442572529634782246766779e+33
+                    },
+                    "message": [
+                        {
+                            "signature": {
+                                "r": 1.259489233771366833297134591893328e+33,
+                                "s": 3.039989029514365702511874269189543e+33
+                            },
+                            "message": "93vSNzBWCJ7acYRYazsg0JsEkcYC89xY+pSjMG+Gj3A="
+                        },
+                        "2018-12-08T01:05:00.714056000000Z"
+                    ]
+                },
+                "postWrittenTime": "2018-12-08T01:05:00.709353000000Z",
+                "postMessage": {
+                    "messageText": "{\"district\": 2, \"precinct\": \"1\", \"date\": \"11/06/2018\", \"time\": \"20:30\", \"ballots_cast\": \"1346\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Lucy McBath\", \"votes\": \"709\"}, {\"name\": \"Karen Handel\", \"votes\": \"637\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Brian Kemp\", \"votes\": \"680\"}, {\"name\": \"Stacey Abrams\", \"votes\": \"650\"}, {\"name\": \"Ted Metz\", \"votes\": \"16\"}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Sanford Bishop\", \"votes\": \"500\"}, {\"name\": \"Herman West\", \"votes\": \"846\"}]}]}"
                 }
             },
-            "postBoardSig": {
-                "signature": {
-                    "r": 1749117762884802644100628761221589,
-                    "s": 378412318118025030611338856172174
-                },
-                "message": [
-                    {
-                        "signature": {
-                            "r": 3042443775779828788095957739903859,
-                            "s": 300679502201121138331561763284743
+            {
+                "postWriter": {
+                    "authorName": "mingo",
+                    "authorPubKey": {
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4.451685225093714772084598273548427e+33,
+                                {
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            1.88281465057972534892223778713752e+32,
+                                            3.419875491033170827167861896082688e+33
+                                        ]
+                                    },
+                                    "ecc_a": 4.451685225093714772084598273548424e+33,
+                                    "ecc_n": 4.451685225093714776491891542548933e+33,
+                                    "ecc_h": 1,
+                                    "ecc_b": 2.061118396808653202902996166388514e+33
+                                }
+                            ]
                         },
-                        "message": "yUBRLevKnPHCGM991J9lVXTAytXGR7nrTYih7fux+tM="
-                    },
-                    "2018-12-07T21:44:29.562486000000Z"
-                ]
-            },
-            "postWrittenTime": "2018-12-07T21:44:29.527034000000Z",
-            "postMessage": {
-                "messageText": "{\"district\": 2, \"precinct\": \"8\", \"date\": \"now\", \"time\": \"04:1910/10/2018\", \"ballots_cast\": \"5\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Harry Johnson\", \"votes\": \"3\"}, {\"name\": \"Suzie Doosie\", \"votes\": \"2\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Alice Muppet\", \"votes\": \"3\"}, {\"name\": \"Bob Builder\", \"votes\": \"2\"}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Robert Paulson\", \"votes\": \"1\"}, {\"name\": \"Tyler Durden\", \"votes\": \"2\"}]}]}"
-            }
-        },
-        {
-            "postWriter": {
-                "authorName": "mingo",
-                "authorPubKey": {
-                    "public_curve": {
-                        "tag": "CurveFP",
-                        "contents": [
-                            4451685225093714772084598273548427,
-                            {
-                                "ecc_g": {
-                                    "tag": "Point",
-                                    "contents": [
-                                        188281465057972534892223778713752,
-                                        3419875491033170827167861896082688
-                                    ]
-                                },
-                                "ecc_a": 4451685225093714772084598273548424,
-                                "ecc_n": 4451685225093714776491891542548933,
-                                "ecc_h": 1,
-                                "ecc_b": 2061118396808653202902996166388514
-                            }
-                        ]
-                    },
-                    "public_q": {
-                        "tag": "Point",
-                        "contents": [
-                            2408448716817768188229894518763943,
-                            4421049736122137007508382296673758
-                        ]
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                9.3795990328771664682283466488571e+32,
+                                2.68731398757936550373911287054233e+33
+                            ]
+                        }
                     }
+                },
+                "postBoardSig": {
+                    "signature": {
+                        "r": 8.39192135145072012241877216526738e+32,
+                        "s": 1.861427407171901690445631816276865e+33
+                    },
+                    "message": [
+                        {
+                            "signature": {
+                                "r": 1.8211923893942136352720300260574e+33,
+                                "s": 1.05586610947885134197833773397218e+32
+                            },
+                            "message": "F7fmHzypeyy1//StO+ieI16OJjy6QoWGQI4yQx4dBVA="
+                        },
+                        "2018-12-08T01:04:08.815792000000Z"
+                    ]
+                },
+                "postWrittenTime": "2018-12-08T01:04:08.793505000000Z",
+                "postMessage": {
+                    "messageText": "{\"district\": 1, \"precinct\": \"2\", \"date\": \"11/06/2018\", \"time\": \"1  20:30\", \"ballots_cast\": \"1074\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Hank Johnson\", \"votes\": \"522\"}, {\"name\": \"Joe Profit\", \"votes\": \"552\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Brian Kemp\", \"votes\": \"612\"}, {\"name\": \"Stacey Abrams\", \"votes\": \"440\"}, {\"name\": \"Ted Metz\", \"votes\": \"10\"}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Melinda Harrington\", \"votes\": \"709\"}, {\"name\": \"Doyle Yates\", \"votes\": \"362\"}]}]}"
                 }
             },
-            "postBoardSig": {
-                "signature": {
-                    "r": 2958757424354921324708865457810708,
-                    "s": 2808633311127176299084032610279820
-                },
-                "message": [
-                    {
-                        "signature": {
-                            "r": 503909177788502828091369576933814,
-                            "s": 3123364498629861038398130565222637
+            {
+                "postWriter": {
+                    "authorName": "mingo",
+                    "authorPubKey": {
+                        "public_curve": {
+                            "tag": "CurveFP",
+                            "contents": [
+                                4.451685225093714772084598273548427e+33,
+                                {
+                                    "ecc_g": {
+                                        "tag": "Point",
+                                        "contents": [
+                                            1.88281465057972534892223778713752e+32,
+                                            3.419875491033170827167861896082688e+33
+                                        ]
+                                    },
+                                    "ecc_a": 4.451685225093714772084598273548424e+33,
+                                    "ecc_n": 4.451685225093714776491891542548933e+33,
+                                    "ecc_h": 1,
+                                    "ecc_b": 2.061118396808653202902996166388514e+33
+                                }
+                            ]
                         },
-                        "message": "vOOqkEhW2TfmUqVqyBZY7jVaoWoq5TJN4jNkIUU2Ns0="
-                    },
-                    "2018-12-07T21:41:04.103568000000Z"
-                ]
-            },
-            "postWrittenTime": "2018-12-07T21:41:04.078601000000Z",
-            "postMessage": {
-                "messageText": "{\"district\": 1, \"precinct\": \"9\", \"date\": \". now\", \"time\": null, \"ballots_cast\": \"200\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Harry Johnson\", \"votes\": \"101\"}, {\"name\": \"Suzie Doosie\", \"votes\": \"99\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Alice Muppet\", \"votes\": \"120\"}, {\"name\": \"Bob Builder\", \"votes\": null}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Melinda Harrington\", \"votes\": null}, {\"name\": \"Doyle Yates\", \"votes\": null}]}]}"
-            }
-        },
-        {
-            "postWriter": {
-                "authorName": "mingo",
-                "authorPubKey": {
-                    "public_curve": {
-                        "tag": "CurveFP",
-                        "contents": [
-                            4451685225093714772084598273548427,
-                            {
-                                "ecc_g": {
-                                    "tag": "Point",
-                                    "contents": [
-                                        188281465057972534892223778713752,
-                                        3419875491033170827167861896082688
-                                    ]
-                                },
-                                "ecc_a": 4451685225093714772084598273548424,
-                                "ecc_n": 4451685225093714776491891542548933,
-                                "ecc_h": 1,
-                                "ecc_b": 2061118396808653202902996166388514
-                            }
-                        ]
-                    },
-                    "public_q": {
-                        "tag": "Point",
-                        "contents": [
-                            2408448716817768188229894518763943,
-                            4421049736122137007508382296673758
-                        ]
+                        "public_q": {
+                            "tag": "Point",
+                            "contents": [
+                                9.3795990328771664682283466488571e+32,
+                                2.68731398757936550373911287054233e+33
+                            ]
+                        }
                     }
-                }
-            },
-            "postBoardSig": {
-                "signature": {
-                    "r": 1749117762884802644100628761221589,
-                    "s": 227559062291263151073123041226334
                 },
-                "message": [
-                    {
-                        "signature": {
-                            "r": 4049080577372399746849370845925809,
-                            "s": 1310696413749976861509829163996968
-                        },
-                        "message": "QKzzYd1i+9/b/JYzXWpGOezZdzAly0jDFPIkJ32lglI="
+                "postBoardSig": {
+                    "signature": {
+                        "r": 4.79531067625101165944071362568551e+32,
+                        "s": 1.878534819285841969342156239052301e+33
                     },
-                    "2018-12-07T21:29:32.871657000000Z"
-                ]
-            },
-            "postWrittenTime": "2018-12-07T21:29:32.866269000000Z",
-            "postMessage": {
-                "messageText": "{\"district\": 1, \"precinct\": \"9\", \"date\": \"_ now\", \"time\": \"04:20 10/1/2018 '\", \"ballots_cast\": \"200\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Harry Johnson\", \"votes\": \"101\"}, {\"name\": \"Suzie Doosie\", \"votes\": \"99\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Alice Muppet\", \"votes\": \"120\"}, {\"name\": \"Bob Builder\", \"votes\": \"80\"}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Melinda Harrington\", \"votes\": \"1\"}, {\"name\": \"Doyle Yates\", \"votes\": \"2\"}]}]}"
+                    "message": [
+                        {
+                            "signature": {
+                                "r": 2.550443126493174344213312847653622e+33,
+                                "s": 1.262118166314522273814857477354349e+33
+                            },
+                            "message": "Umvak+zWpmydIKEA4Lx3d9By8MzXPVd08LkEvuqwYpE="
+                        },
+                        "2018-12-08T01:00:51.435914000000Z"
+                    ]
+                },
+                "postWrittenTime": "2018-12-08T01:00:51.415153000000Z",
+                "postMessage": {
+                    "messageText": "{\"district\": 3, \"precinct\": \"1\", \"date\": \"1  11/06/2018\", \"time\": \"20:30\", \"ballots_cast\": \"1424\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Rob Woodall\", \"votes\": \"830\"}, {\"name\": \"Carolyn Bourdeaux\", \"votes\": \"594\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Brian Kemp\", \"votes\": \"600\"}, {\"name\": \"Stacey Abrams\", \"votes\": \"820\"}, {\"name\": \"Ted Metz\", \"votes\": \"4\"}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Drew Ferguson\", \"votes\": \"488\"}, {\"name\": \"Chuck Enderlin\", \"votes\": \"936\"}]}]}"
+                }
             }
-        },
+        ],
         {
-            "postWriter": {
-                "authorName": "mingo",
-                "authorPubKey": {
-                    "public_curve": {
-                        "tag": "CurveFP",
-                        "contents": [
-                            4451685225093714772084598273548427,
-                            {
-                                "ecc_g": {
-                                    "tag": "Point",
-                                    "contents": [
-                                        188281465057972534892223778713752,
-                                        3419875491033170827167861896082688
-                                    ]
-                                },
-                                "ecc_a": 4451685225093714772084598273548424,
-                                "ecc_n": 4451685225093714776491891542548933,
-                                "ecc_h": 1,
-                                "ecc_b": 2061118396808653202902996166388514
-                            }
-                        ]
-                    },
-                    "public_q": {
-                        "tag": "Point",
-                        "contents": [
-                            2408448716817768188229894518763943,
-                            4421049736122137007508382296673758
-                        ]
-                    }
-                }
+            "signature": {
+                "r": 1.8152015168389182192464500978444e+33,
+                "s": 4.168518969857116985944202998353136e+33
             },
-            "postBoardSig": {
-                "signature": {
-                    "r": 2958757424354921324708865457810708,
-                    "s": 4353972778630810933207309311511450
-                },
-                "message": [
-                    {
-                        "signature": {
-                            "r": 2694186600367505595033807846450885,
-                            "s": 3467808236464603344117663777574473
-                        },
-                        "message": "zHK+ausgG5mR7aUO421yr38fESjVdj7n2ARJdp4eBcc="
-                    },
-                    "2018-12-07T21:28:08.074753000000Z"
-                ]
-            },
-            "postWrittenTime": "2018-12-07T21:28:08.047119000000Z",
-            "postMessage": {
-                "messageText": "{\"district\": 2, \"precinct\": \"8\", \"date\": \"' now \\u2018\", \"time\": \"* t o4;1910/10/2018\", \"ballots_cast\": \"5\", \"races\": [{\"race_name\": \"Senate\", \"candidates\": [{\"name\": \"Harry Johnson\", \"votes\": \"3\"}, {\"name\": \"Suzie Doosie\", \"votes\": \"2\"}]}, {\"race_name\": \"Governor\", \"candidates\": [{\"name\": \"Alice Muppet\", \"votes\": \"3\"}, {\"name\": \"Bob Builder\", \"votes\": \"2\"}]}, {\"race_name\": \"House\", \"candidates\": [{\"name\": \"Robert Paulson\", \"votes\": \"1\"}, {\"name\": \"Tyler Durden\", \"votes\": \"2\"}]}]}"
-            }
+            "message": [
+                "P9IbejcnUaHFfWahPtYwlhXAty3IUUpGkjF+XU6NXR0=",
+                "2018-12-09T00:42:33.876443000000Z"
+            ]
         }
     ],
-    {
-        "signature": {
-            "r": 1749117762884802644100628761221589,
-            "s": 3916592379027804028357336589323697
+    "pubkey": {
+        "public_curve": {
+            "tag": "CurveFP",
+            "contents": [
+                4.451685225093714772084598273548427e+33,
+                {
+                    "ecc_g": {
+                        "tag": "Point",
+                        "contents": [
+                            1.88281465057972534892223778713752e+32,
+                            3.419875491033170827167861896082688e+33
+                        ]
+                    },
+                    "ecc_a": 4.451685225093714772084598273548424e+33,
+                    "ecc_n": 4.451685225093714776491891542548933e+33,
+                    "ecc_h": 1,
+                    "ecc_b": 2.061118396808653202902996166388514e+33
+                }
+            ]
         },
-        "message": [
-            "tTvGBGD2Wya9bIieKJkVHBXG5Y8MQeVE36vnx0hNv0I=",
-            "2018-12-07T22:00:07.111391000000Z"
-        ]
+        "public_q": {
+            "tag": "Point",
+            "contents": [
+                8.39192135145072012241877216526738e+32,
+                9.25095772143566035493322441138483e+32
+            ]
+        }
     }
-]
+}
