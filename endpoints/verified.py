@@ -30,9 +30,7 @@ class Verified(Resource):
         # execute constructed command
         command = "{0} 0.0.0.0:8000 post < {1}".format(client_path, post_file_path)
         client_post_result = subprocess.run(command, shell=True, stdout=subprocess.PIPE)
-        # client_post_result = subprocess.run(command, shell=True)
 
-        successful = client_post_result.returncode == 0
-        if successful:
+        if client_post_result.returncode == 0:
             return "Poll tape posted to bulletin board successfully.", 200
         return "Failed to post poll tape to bulletin board.", 409
