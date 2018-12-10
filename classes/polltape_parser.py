@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image, ImageFilter, ImageEnhance
 from io import BytesIO
 import imutils
+import os
 from skimage.filters import threshold_local, threshold_adaptive
 
 # Takes in a werkzeug.FileStorage object, converts to an image
@@ -15,7 +16,8 @@ class PollTapeParser:
     buff = fileobj.read()
     nparr = np.fromstring(buff, np.uint8)
     self.cvimg = cv2.imdecode(nparr, 1)
-    self.PRINT_PROCESS = True
+    self.PRINT_PROCESS = False
+    self.PRINT_RESULT = False
 
 
   def showarr(self, arr):
@@ -139,10 +141,11 @@ class PollTapeParser:
       self.showarr(gray)
 
     # b & w
-    res = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1]
-    # res = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 10)
+    # res = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY)[1]
+    # res = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1]
+    res = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 81, 10)
     # remove salt and pepper
-    res = cv2.medianBlur(res, 3)
+    res = cv2.medianBlur(res, 5)
 
     if self.PRINT_PROCESS:
       self.showarr(res)
@@ -162,15 +165,18 @@ class PollTapeParser:
 
     # Sharpen image
     self.image = self.image.filter(ImageFilter.SHARPEN)
-    self.image.show()
+
+    if self.PRINT_PROCESS or self.PRINT_RESULT:
+      self.image.show()
     
   # Uses pytesseract to convert the image to a string
   def parse(self):
-      tess = pytesseract.image_to_string(
-        self.image,
-        lang='eng',
-        config='---psm=1  -c tessedit_char_whitelist=01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*:/ tosp_min_sane_kn_sp=2.8'
-        )
-      if self.PRINT_PROCESS:
-        print(tess)
-      return tess
+    wordsfile = os.path.join(os.path.dirname(__file__), 'user_words.txt')
+    tess = pytesseract.image_to_string(
+      self.image,
+      lang='eng',
+      config='---psm=1  --user-words {} -c tosp_min_sane_kn_sp=6.0 -c tessedit_char_whitelist=01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*:/'.format(wordsfile)
+      )
+    if self.PRINT_PROCESS:
+      print(tess)
+    return tess
