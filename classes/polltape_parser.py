@@ -31,7 +31,7 @@ class PollTapeParser:
     # Process the image to find edges
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.bilateralFilter(gray, 11, 17, 17)
-    edges = cv2.Canny(gray, 75, 200)
+    edges = cv2.Canny(gray, 50, 150)
 
     if self.PRINT_PROCESS:
       self.showarr(gray)
@@ -139,7 +139,8 @@ class PollTapeParser:
       self.showarr(gray)
 
     # b & w
-    res = cv2.threshold(gray, 100, 200, cv2.THRESH_TOZERO)[1]
+    res = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1]
+    # res = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 10)
     # remove salt and pepper
     res = cv2.medianBlur(res, 3)
 
@@ -168,7 +169,7 @@ class PollTapeParser:
       tess = pytesseract.image_to_string(
         self.image,
         lang='eng',
-        config='---psm=1  -c tessedit_char_whitelist=01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*:/'
+        config='---psm=1  -c tessedit_char_whitelist=01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*:/ tosp_min_sane_kn_sp=2.8'
         )
       if self.PRINT_PROCESS:
         print(tess)
