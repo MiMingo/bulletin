@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image, ImageFilter, ImageEnhance
 from io import BytesIO
 import imutils
-from skimage.filters import threshold_local
+from skimage.filters import threshold_local, threshold_adaptive
 
 # Takes in a werkzeug.FileStorage object, converts to an image
 # and parses the image into json data
@@ -15,6 +15,7 @@ class PollTapeParser:
     buff = fileobj.read()
     nparr = np.fromstring(buff, np.uint8)
     self.cvimg = cv2.imdecode(nparr, 1)
+    self.PRINT_PROCESS = True
 
 
   def showarr(self, arr):
@@ -24,13 +25,17 @@ class PollTapeParser:
   def get_paper_contour(self, orig):
     # resize the image for faster computation.
     image = orig.copy()
-    ratio = image.shape[0] / 300.0
-    image = imutils.resize(image, height = 300)
+    ratio = image.shape[0] / 500.0
+    image = imutils.resize(image, height = 500)
 
     # Process the image to find edges
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.bilateralFilter(gray, 11, 17, 17)
-    edges = cv2.Canny(gray, 30, 200)
+    edges = cv2.Canny(gray, 75, 200)
+
+    if self.PRINT_PROCESS:
+      self.showarr(gray)
+      self.showarr(edges)
 
     # Get the ballotContour from the edges -- the largest connected rectangle.
     _, contours, _ = cv2.findContours(edges.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
@@ -51,8 +56,9 @@ class PollTapeParser:
       raise ValueError('Could not determine ballot border. Make sure the ballot is on a solid dark background, fully in the image.')
 
     # Draw the contour
-    # cv2.drawContours(image, [ballotContour], -1, (0, 255, 0), 1)
-    # self.showarr(image)
+    if self.PRINT_PROCESS:
+      cv2.drawContours(image, [ballotContour], -1, (0, 255, 0), 1)
+      self.showarr(image)
 
     # Reshape, scale, and return
     ballotContour = ballotContour.reshape(4,2) * ratio
@@ -84,7 +90,7 @@ class PollTapeParser:
   def four_point_transform(self, orig, contour):
     rect = self.order_points(contour)
     print(rect)
-    tr, tl, br, bl = rect
+    tl, tr, br, bl = rect
 
     # create the new image width -- the max length of the top or bottom of the contour
     widthA = np.sqrt(((br[0] - bl[0]) ** 2) + ((br[1] - bl[1]) ** 2))
@@ -117,27 +123,30 @@ class PollTapeParser:
   def descew(self):
     contour = self.get_paper_contour(self.cvimg)
     warped = self.four_point_transform(self.cvimg, contour)
-    # self.showarr(warped)
+
+    if self.PRINT_PROCESS:
+      self.showarr(self.cvimg)
+      self.showarr(warped)
+
     return warped
 
   # Performs several preprocessing techniques on the tape to increase tesseract accuracy
   def preprocess(self, tape):
     # grayscale
     gray = cv2.cvtColor(tape, cv2.COLOR_BGR2GRAY)
-    # skimage threshold (text is a bit light)
-    # T = threshold_local(gray, 11, offset = 10)
-    # gray = (gray > T).astype("uint8") * 255
-    # gray = cv2.medianBlur(gray, 11)
-    # self.showarr(gray)
+    
+    if self.PRINT_PROCESS:
+      self.showarr(gray)
 
-    res = cv2.threshold(gray, 80, 255, cv2.THRESH_TOZERO)[1]
+    # b & w
+    res = cv2.threshold(gray, 100, 200, cv2.THRESH_TOZERO)[1]
     # remove salt and pepper
-    res = cv2.medianBlur(gray, 3)
-    # self.showarr(res)
-    # self.showarr(median)
+    res = cv2.medianBlur(res, 3)
+
+    if self.PRINT_PROCESS:
+      self.showarr(res)
 
     return res
-    # return gray
 
   # Does pre-processing on the image to make it easier for pytesseract to read
   def process(self):
@@ -149,9 +158,18 @@ class PollTapeParser:
 
     # set the PIL Image
     self.image = Image.fromarray(processed)
+
+    # Sharpen image
+    self.image = self.image.filter(ImageFilter.SHARPEN)
+    self.image.show()
     
   # Uses pytesseract to convert the image to a string
   def parse(self):
-      tess = pytesseract.image_to_string(self.image, lang='eng')
-      print(tess)
+      tess = pytesseract.image_to_string(
+        self.image,
+        lang='eng',
+        config='---psm=1  -c tessedit_char_whitelist=01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*:/'
+        )
+      if self.PRINT_PROCESS:
+        print(tess)
       return tess
