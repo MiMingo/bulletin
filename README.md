@@ -20,4 +20,5 @@ A simple api endpoint example exists at ```localhost:8080/api/hello```.
 ***Append-only Bulletin Server***  
 To run the server, you need to find the executable in the sanbox folder.  
 Mine was located at:  
-```./dist/dist-sandbox-12b8a418/build/bbserver/bbserver```  
+```./dist/dist-sandbox-12b8a418/build/bbserver/bbserver```
+If you dont have a ```dist``` folder, try looking under ```./.cabal-sandbox/bin/```
